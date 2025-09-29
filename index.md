@@ -1,18 +1,25 @@
 # SQL Tutorial Materials Index
 
 ## Core Tutorial Files
+
+### Part 1: Single Table Operations
 1. [Introduction to Databases](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/01_introduction_to_databases.md)
 2. [Getting Started with SQLite](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/02_getting_started_with_sqlite.md)
 3. [Creating Tables](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/03_creating_tables.md)
 4. [Inserting Data](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/04_inserting_data.md)
 5. [Reading Data (SELECT)](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/05_reading_data.md)
 6. [Filtering Data](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/06_filtering_data.md)
-7. [Ordering Results](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/07_ordering_results.md)
-8. [Limiting Results](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/08_limiting_results.md)
-9. [Updating Records](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/09_updating_records.md)
-10. [Deleting Records](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/10_deleting_records.md)
-11. [Database Design Basics](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/11_database_design_basics.md)
-12. [Next Steps (Optional/Extension)](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/12_next_steps.md)
+7. [Ordering and Limiting Results](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/07_ordering_and_limiting_results.md)
+8. [Updating and Deleting Records](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/08_updating_and_deleting_records.md)
+
+### Part 2: Relational Database Concepts
+9. [Introduction to Database Relationships](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/09_introduction_to_relationships.md)
+10. [Creating Related Tables](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/10_creating_related_tables.md)
+11. [Working with Multiple Tables](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/11_working_with_multiple_tables.md)
+
+### Part 3: Advanced Topics and Applications
+12. [Using SQL with Python: ORMs vs. Raw SQL](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/12_using_sql_with_python.md)
+13. [Advanced SQL Topics and Next Steps](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/tutorials/13_advanced_sql_topics.md)
 
 ## Setup and Installation
 - [Setup Guide](https://github.com/Mr-Zamora/SQL_fundamentals/blob/master/setup/00_setup_guide.md)
