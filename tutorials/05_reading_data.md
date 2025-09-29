@@ -139,32 +139,58 @@ SELECT * FROM students WHERE grade = 12 OR grade = 11;
 
 This returns students who are in either grade 11 OR grade 12.
 
-## Retrieving Data from Multiple Tables
+## Aggregate Functions
 
-We'll cover joins in detail later, but here's a simple example:
+SQLite provides several functions to perform calculations on data:
 
 ```sql
 SELECT 
-    students.name AS student_name,
-    courses.name AS course_name
-FROM 
-    students, 
-    courses, 
-    enrollments
-WHERE 
-    enrollments.student_id = students.id 
-    AND enrollments.course_id = courses.id;
+    COUNT(*) AS total_students,
+    AVG(age) AS average_age,
+    MIN(age) AS youngest,
+    MAX(age) AS oldest
+FROM students;
 ```
 
-This returns a list of students and the courses they're enrolled in.
+This returns the total number of students, their average age, and the ages of the youngest and oldest students.
+
+## Grouping Results
+
+The GROUP BY clause allows you to group rows that have the same values:
+
+```sql
+SELECT 
+    grade,
+    COUNT(*) AS student_count,
+    AVG(age) AS average_age
+FROM students
+GROUP BY grade;
+```
+
+This returns the count and average age of students in each grade level.
+
+## Filtering Groups with HAVING
+
+The HAVING clause filters groups (similar to how WHERE filters rows):
+
+```sql
+SELECT 
+    grade,
+    COUNT(*) AS student_count
+FROM students
+GROUP BY grade
+HAVING COUNT(*) > 1;
+```
+
+This returns only grade levels that have more than one student.
 
 ## Practice Exercises
 
 1. Retrieve all students in grade 11
 2. Count how many students are in each grade
 3. Find the average age of students in grade 12
-4. List all courses with their teachers
-5. Find all students enrolled in Mathematics
+4. List all students whose names start with 'J'
+5. Find the youngest and oldest student in the database
 
 ## Next Steps
 

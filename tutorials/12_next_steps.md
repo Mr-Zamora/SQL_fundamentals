@@ -1,42 +1,6 @@
-# 12. Next Steps (Optional/Extension)
+# 12. Advanced SQL Topics and Next Steps
 
-Now that you've learned the fundamentals of SQL, let's explore some more advanced topics and how to apply your SQL knowledge in real-world applications.
-
-## Introduction to Joins
-
-Joins allow you to combine data from multiple tables into a single result set. There are several types of joins:
-
-### INNER JOIN
-
-Returns only the rows that have matching values in both tables:
-
-```sql
-SELECT students.name, courses.name as course_name
-FROM students
-INNER JOIN enrollments ON students.id = enrollments.student_id
-INNER JOIN courses ON enrollments.course_id = courses.id;
-```
-
-This returns all students and the courses they're enrolled in.
-
-### LEFT JOIN
-
-Returns all rows from the left table and matching rows from the right table:
-
-```sql
-SELECT students.name, courses.name as course_name
-FROM students
-LEFT JOIN enrollments ON students.id = enrollments.student_id
-LEFT JOIN courses ON enrollments.course_id = courses.id;
-```
-
-This returns all students, even those not enrolled in any courses.
-
-### Other Joins
-
-- RIGHT JOIN: Returns all rows from the right table and matching rows from the left table
-- FULL OUTER JOIN: Returns all rows when there's a match in either table
-- CROSS JOIN: Returns the Cartesian product of both tables (all possible combinations)
+Now that you've learned the fundamentals of SQL and how to work with both single tables and related tables, let's explore some more advanced topics and how to apply your SQL knowledge in real-world applications.
 
 ## Integrating with Python
 

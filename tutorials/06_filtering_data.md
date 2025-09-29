@@ -168,4 +168,4 @@ SELECT * FROM students WHERE age BETWEEN 16 AND 18;
 
 ## Next Steps
 
-Now that you know how to filter data, in the next section we'll learn how to sort the results using ORDER BY.
+Now that you know how to filter data, in the next section we'll learn how to sort and limit the results using ORDER BY and LIMIT.

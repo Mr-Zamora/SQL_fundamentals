@@ -5,7 +5,7 @@
 Before we create tables, let's understand what they represent:
 
 - Tables are the fundamental storage structure in a relational database
-- Each table should represent one "entity" or "concept" (e.g., students, courses, teachers)
+- Each table should represent one "entity" or "concept" (e.g., students, products, tasks)
 - Tables have a defined structure (schema) that specifies what data they can contain
 
 ## CREATE TABLE Syntax
@@ -37,6 +37,15 @@ SQLite has five main data types:
 5. **NULL**: Represents missing data
 
 Unlike some other database systems, SQLite uses "type affinity" which means it's somewhat flexible with data types.
+
+## Planning Your Table Structure
+
+Before creating a table, it's important to plan its structure:
+
+1. Decide what entity the table will represent (e.g., students)
+2. Identify the attributes you need to store (e.g., name, age, grade)
+3. Choose appropriate data types for each attribute
+4. Determine which constraints are needed
 
 ## Creating Your First Table
 
@@ -101,35 +110,48 @@ Constraints are rules that restrict what data can be stored:
 - **DEFAULT value**: Specifies a default value for the column
 - **CHECK (condition)**: Ensures data meets a specific condition
 
-## Creating More Tables
+## Examples of Constraints
 
-Let's create two more tables for our school database:
+Let's see some examples of these constraints in action:
 
-### Courses Table
+### DEFAULT Constraint
 
 ```sql
-CREATE TABLE courses (
+CREATE TABLE products (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    teacher TEXT,
-    room TEXT
+    price REAL NOT NULL,
+    in_stock INTEGER DEFAULT 0
 );
 ```
 
-### Enrollments Table (Connecting Students and Courses)
+Here, new products will have `in_stock` set to 0 unless specified otherwise.
+
+### UNIQUE Constraint
 
 ```sql
-CREATE TABLE enrollments (
+CREATE TABLE users (
     id INTEGER PRIMARY KEY,
-    student_id INTEGER,
-    course_id INTEGER,
-    enrollment_date TEXT,
-    FOREIGN KEY (student_id) REFERENCES students (id),
-    FOREIGN KEY (course_id) REFERENCES courses (id)
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
 );
 ```
 
-The `FOREIGN KEY` constraints establish relationships between tables.
+This ensures no two users can have the same username or email.
+
+### CHECK Constraint
+
+```sql
+CREATE TABLE employees (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    salary REAL CHECK(salary > 0),
+    department TEXT
+);
+```
+
+This prevents negative salary values from being entered.
 
 ## Viewing Table Structure
 
@@ -141,7 +163,23 @@ sqlite> .schema students
 
 This will show the CREATE TABLE statement used to create the table.
 
-## Dropping (Deleting) Tables
+## Modifying Tables
+
+### Adding a Column
+
+You can add a new column to an existing table:
+
+```sql
+ALTER TABLE students ADD COLUMN email TEXT;
+```
+
+### Renaming a Table
+
+```sql
+ALTER TABLE students RENAME TO school_students;
+```
+
+### Dropping (Deleting) Tables
 
 If you need to delete a table:
 
@@ -161,7 +199,8 @@ Be careful with this command! It permanently deletes the table and all its data.
 
 1. Create a "teachers" table with columns for id, name, subject, and email
 2. View the structure of your new table
-3. Create an "assignments" table that references both students and courses
+3. Create a "courses" table with columns for id, name, description, and credits
+4. Add a "start_date" column to your students table with a default value of the current date
 
 ## Next Steps
 
