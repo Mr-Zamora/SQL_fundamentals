@@ -12,7 +12,7 @@ SQLite is a lightweight, disk-based database that doesn't require a separate ser
 
 ## Using SQLite in Windsurf
 
-Good news! Since you're using Windsurf and already have Python installed, you're ready to start using SQLite right away. SQLite comes built-in with Python, so no additional installation is needed.
+SQLite comes built-in with Python, but to use the SQLite command-line interface directly, you'll need to install the SQLite command-line tools. Below are instructions for different operating systems.
 
 ### Setting Up the Tutorial
 
@@ -22,28 +22,87 @@ Good news! Since you're using Windsurf and already have Python installed, you're
    cd SQL_fundamentals
    ```
 
-2. Verify SQLite is working by running this Python code in the terminal:
+2. Verify SQLite is available through Python by running this code in the terminal:
    ```python
    python -c "import sqlite3; print('SQLite version:', sqlite3.sqlite_version)"
    ```
 
    You should see the SQLite version number displayed.
 
+### Installing SQLite Command-Line Tools
 
+#### For Windows Users
 
-### Step 1: Using SQLite Command Line in Windsurf Terminal
+1. **Download SQLite Tools**:
+   - Visit the [SQLite Download Page](https://www.sqlite.org/download.html)
+   - Find and download the latest "Precompiled Binaries for Windows" > "sqlite-tools-win32-x86..." ZIP file
 
-You can also use the SQLite command-line interface directly in the Windsurf terminal:
+2. **Extract and Install**:
+   - Create a folder at `C:\SQLite`
+   - Extract the contents of the downloaded ZIP file to this folder
 
-1. In the Windsurf terminal, navigate to your project folder (if you're not already there):
+3. **Add to PATH** (to use `sqlite3` from any location):
+   - Open PowerShell as Administrator
+   - Run this command to add SQLite to your PATH:
+     ```powershell
+     [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\SQLite", "User")
+     ```
+   - Close and reopen your terminal for the changes to take effect
+
+4. **Verify Installation**:
+   - In a new terminal window, run:
+     ```
+     sqlite3 --version
+     ```
+   - If you see the SQLite version, the installation was successful
+
+#### For Mac Users
+
+1. **Using Homebrew** (recommended):
+   - If you don't have Homebrew installed, install it first:
+     ```bash
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+     ```
+   - Install SQLite:
+     ```bash
+     brew install sqlite
+     ```
+
+2. **Verify Installation**:
+   - Run:
+     ```bash
+     sqlite3 --version
+     ```
+   - If you see the SQLite version, the installation was successful
+
+### Step 1: Using SQLite Command Line
+
+#### Understanding Working Directories
+
+**Important to understand**: When using SQLite, your database files are created and accessed in your current working directory, not where the SQLite program is installed.
+
+- If you run `sqlite3 school.db` or `C:\SQLite\sqlite3 school.db`, the database file `school.db` will be created/accessed in your current working directory
+- The SQLite program location (`C:\SQLite`) and your working directory (where your project files are) are completely separate concepts
+
+#### Using SQLite
+
+Once SQLite is installed, you can use the SQLite command-line interface:
+
+1. In the terminal, navigate to your project folder where you want your database to be located:
    ```
    cd SQL_fundamentals
    ```
 
-2. Start SQLite with a new database file:
+2. Start SQLite with a new database file (this will create or open the file in your current directory):
    ```
    sqlite3 school.db
    ```
+   
+   If the `sqlite3` command isn't recognized, use the full path:
+   ```
+   C:\SQLite\sqlite3 school.db
+   ```
+   (This still creates/opens the database in your current directory, not in C:\SQLite)
 
 3. You should see the SQLite prompt:
    ```
@@ -52,10 +111,30 @@ You can also use the SQLite command-line interface directly in the Windsurf term
    sqlite>
    ```
 
-4. To exit the SQLite prompt and return to the terminal, type:
+4. **IMPORTANT**: SQLite commands (like `.help`, `.tables`, etc.) and SQL queries can ONLY be run within the SQLite shell after you see the `sqlite>` prompt. These commands will not work directly in PowerShell or Terminal.
+
+   For example, once you see the `sqlite>` prompt, you can run:
+   ```
+   .help                   (shows available SQLite commands)
+   .tables                 (lists all tables in the database)
+   .schema table_name      (shows the structure of a table)
+   .databases              (shows the path to your current database file - confirms your working directory)
+   SELECT * FROM table;    (runs an SQL query - note the semicolon)
+   ```
+
+5. To exit the SQLite prompt and return to the terminal, type:
    ```
    .exit
    ```
+
+#### Troubleshooting
+
+If the `sqlite3` command is not recognized:
+- For Windows: Use the full path: `C:\SQLite\sqlite3 school.db`
+  - Note: Using the full path only specifies where to find the SQLite program; it does NOT change your working directory. Your database operations will still work in your current directory.
+  - To verify your current working directory in SQLite, you can run: `.databases` (this shows the path to your current database file)
+- For Mac: Make sure Homebrew's bin directory is in your PATH
+- If you've just added SQLite to your PATH, you may need to close and reopen your terminal
 
 
 ## Optional: Using DB Browser for SQLite (Visual Tool)
