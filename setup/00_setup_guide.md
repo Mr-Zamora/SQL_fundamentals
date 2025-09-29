@@ -48,6 +48,8 @@ SQLite comes built-in with Python, but to use the SQLite command-line interface 
      [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\SQLite", "User")
      ```
    - Close and reopen your terminal for the changes to take effect
+   
+   > **Note for Windsurf Users**: If `sqlite3` works in your regular PowerShell but not in the Windsurf terminal, you may need to use the full path to the SQLite executable in the Windsurf terminal: `C:\SQLite\sqlite3` instead of just `sqlite3`
 
 4. **Verify Installation**:
    - In a new terminal window, run:
@@ -94,15 +96,18 @@ Once SQLite is installed, you can use the SQLite command-line interface:
    ```
 
 2. Start SQLite with a new database file (this will create or open the file in your current directory):
+
+   **Option A**: If SQLite is in your PATH:
    ```
    sqlite3 school.db
    ```
    
-   If the `sqlite3` command isn't recognized, use the full path:
+   **Option B**: If the `sqlite3` command isn't recognized (especially in Windsurf terminal), use the full path:
    ```
    C:\SQLite\sqlite3 school.db
    ```
-   (This still creates/opens the database in your current directory, not in C:\SQLite)
+   
+   > **Important**: Both commands create/open the database in your current directory, not in C:\SQLite. The full path only tells Windows where to find the SQLite program.
 
 3. You should see the SQLite prompt:
    ```
@@ -133,6 +138,7 @@ If the `sqlite3` command is not recognized:
 - For Windows: Use the full path: `C:\SQLite\sqlite3 school.db`
   - Note: Using the full path only specifies where to find the SQLite program; it does NOT change your working directory. Your database operations will still work in your current directory.
   - To verify your current working directory in SQLite, you can run: `.databases` (this shows the path to your current database file)
+- **For Windsurf Terminal Users**: The Windsurf terminal may have a different PATH setting than your regular PowerShell. If `sqlite3` works in your regular PowerShell but not in Windsurf, always use the full path in Windsurf: `C:\SQLite\sqlite3 school.db`
 - For Mac: Make sure Homebrew's bin directory is in your PATH
 - If you've just added SQLite to your PATH, you may need to close and reopen your terminal
 
