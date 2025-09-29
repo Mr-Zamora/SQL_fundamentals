@@ -10,6 +10,8 @@ This tutorial is designed to teach the fundamentals of SQL (Structured Query Lan
 
 ## Tutorial Structure
 
+### Part 1: Single Table Operations
+
 1. **Introduction to Databases**
    - What is a database?
    - Why we use databases
@@ -20,51 +22,74 @@ This tutorial is designed to teach the fundamentals of SQL (Structured Query Lan
    - Creating a new database
    - Opening the SQLite shell
 
-3. **Creating a Table**
+3. **Creating Tables**
    - CREATE TABLE syntax
    - Choosing appropriate data types
-   - Example: students (name TEXT, age INTEGER)
+   - Planning table structure
+   - Column constraints (PRIMARY KEY, NOT NULL, etc.)
 
 4. **Inserting Data**
    - INSERT INTO syntax
    - Adding one row at a time
    - Batch insert example
+   - Working with DEFAULT values
 
 5. **Reading Data (SELECT)**
    - SELECT * FROM table
    - Selecting specific columns
-   - Filtering with WHERE
+   - Using expressions and aliases
+   - Aggregate functions (COUNT, AVG, etc.)
 
 6. **Filtering Data**
    - Using =, <, >, !=
    - Text filters with LIKE
    - Combining filters with AND, OR
+   - NULL values and IN operator
 
-7. **Ordering Results**
+7. **Ordering and Limiting Results**
    - ORDER BY ascending/descending
    - Sorting by multiple columns
-
-8. **Limiting Results**
-   - LIMIT clause
+   - LIMIT clause for pagination
    - Practical use cases
 
-9. **Updating Records**
+8. **Updating and Deleting Records**
    - UPDATE ... SET ... WHERE ...
-   - Safe practices with WHERE
+   - DELETE FROM ... WHERE ...
+   - Safe practices with transactions
+   - Avoiding accidental data loss
 
-10. **Deleting Records**
-    - DELETE FROM ... WHERE ...
-    - Avoiding accidental deletion
+### Part 2: Relational Database Concepts
 
-11. **Database Design Basics**
-    - What is a primary key?
-    - Naming conventions
-    - One table vs multiple tables
+9. **Introduction to Database Relationships**
+   - Types of relationships (one-to-one, one-to-many, many-to-many)
+   - Primary and foreign keys
+   - Database normalization basics
 
-12. **Next Steps (Optional/Extension)**
-    - Intro to joins (if needed)
-    - Integrating with Python or Flask
-    - Exporting/importing CSV/JSON data
+10. **Creating Related Tables**
+    - Designing tables with relationships
+    - Implementing foreign keys
+    - Ensuring referential integrity
+    - Self-referencing tables
+
+11. **Working with Multiple Tables**
+    - JOIN operations (INNER, LEFT, CROSS)
+    - Querying across related tables
+    - Aggregating joined data
+    - Common JOIN problems
+
+### Part 3: Advanced Topics and Applications
+
+12. **Using SQL with Python: ORMs vs. Raw SQL**
+    - Raw SQL approach with sqlite3
+    - Object-Relational Mapping with SQLAlchemy
+    - Comparing advantages and disadvantages
+    - Hybrid approaches for real-world applications
+
+13. **Advanced SQL Topics and Next Steps**
+    - Integrating with web frameworks
+    - Exporting/importing data (CSV/JSON)
+    - Alternative database systems
+    - Resources for further learning
 
 ## How to Use This Tutorial
 
