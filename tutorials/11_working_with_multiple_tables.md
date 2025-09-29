@@ -210,4 +210,4 @@ This returns each employee with their manager's name.
 
 ## Next Steps
 
-Now that you've learned how to work with related tables, in the next section we'll explore advanced SQL topics and next steps for your SQL journey.
+Now that you've learned how to work with related tables, in the next section we'll explore how to integrate SQL with Python applications using both raw SQL and ORMs (Object-Relational Mappers).

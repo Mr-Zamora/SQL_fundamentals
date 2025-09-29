@@ -1,4 +1,4 @@
-# 12. Advanced SQL Topics and Next Steps
+# 13. Advanced SQL Topics and Next Steps
 
 Now that you've learned the fundamentals of SQL and how to work with both single tables and related tables, let's explore some more advanced topics and how to apply your SQL knowledge in real-world applications.
 
