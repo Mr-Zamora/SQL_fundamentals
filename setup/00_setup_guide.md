@@ -18,10 +18,9 @@ Good news! Since you're using Windsurf and already have Python installed, you're
 
 1. Download the tutorial repository using the terminal in Windsurf:
    ```
-   git clone [REPOSITORY_URL] hello_sql
-   cd hello_sql
+   git clone https://github.com/Mr-Zamora/SQL_fundamentals.git
+   cd SQL_fundamentals
    ```
-   (Your instructor will provide the repository URL)
 
 2. Verify SQLite is working by running this Python code in the terminal:
    ```python
@@ -30,44 +29,15 @@ Good news! Since you're using Windsurf and already have Python installed, you're
 
    You should see the SQLite version number displayed.
 
-### Two Ways to Use SQLite
 
-#### Option 1: Using SQLite with Python (Recommended)
 
-Since you already have Python installed in Windsurf, this is the easiest way to get started:
-
-```python
-import sqlite3
-
-# Connect to a database (creates it if it doesn't exist)
-conn = sqlite3.connect('school.db')
-print("Database created successfully!")
-
-# Create a cursor object to execute SQL commands
-cursor = conn.cursor()
-
-# Execute a SQL command
-cursor.execute("SELECT sqlite_version();")
-
-# Fetch and print the result
-version = cursor.fetchone()
-print(f"SQLite version: {version[0]}")
-
-# Always close the connection when done
-conn.close()
-```
-
-Save this as `check_sqlite.py` and run it with `python check_sqlite.py`
-
-## Creating Your First Database
-
-### Option 2: Using SQLite Command Line in Windsurf Terminal
+### Step 1: Using SQLite Command Line in Windsurf Terminal
 
 You can also use the SQLite command-line interface directly in the Windsurf terminal:
 
 1. In the Windsurf terminal, navigate to your project folder (if you're not already there):
    ```
-   cd hello_sql
+   cd SQL_fundamentals
    ```
 
 2. Start SQLite with a new database file:
@@ -87,53 +57,6 @@ You can also use the SQLite command-line interface directly in the Windsurf term
    .exit
    ```
 
-### Creating a Database with Python:
-
-```python
-import sqlite3
-
-# Connect to a database (creates it if it doesn't exist)
-conn = sqlite3.connect('school.db')
-print("Database created successfully!")
-
-# Create a cursor to execute SQL commands
-cursor = conn.cursor()
-
-# Create a simple table
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS students (
-        id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
-        age INTEGER
-    )
-''')
-
-# Commit changes and close the connection
-conn.commit()
-conn.close()
-```
-
-Save this as `create_database.py` and run it with `python create_database.py`
-
-## Basic SQLite Commands
-
-Once in the SQLite shell, you can use these commands:
-
-- `.help` - Show help text
-- `.tables` - List all tables
-- `.schema TABLE_NAME` - Show the CREATE statement for TABLE_NAME
-- `.mode column` - Display results in a column format (more readable)
-- `.headers on` - Show column names in results
-- `.quit` or `.exit` - Exit SQLite
-
-## Switching Between Python and SQLite CLI
-
-You can use both approaches interchangeably throughout this tutorial:
-
-- **Python**: Better for programmatic access, automation, and integration with applications
-- **SQLite CLI**: Better for quick queries, exploring the database, and learning SQL syntax
-
-For example, you could create a database and tables with Python, then explore the data using the SQLite CLI.
 
 ## Optional: Using DB Browser for SQLite (Visual Tool)
 
